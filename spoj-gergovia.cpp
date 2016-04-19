@@ -5,14 +5,25 @@ using namespace std;
 
 int main()
 {
-    int n, cost = 0;
+    int n = 1, cost = 0;
     int demand[100000];
 
-    cin >> n;
-    cin >> demand[0];
-    for(int i=1; i<n; i++)
+    while(n != 0)
     {
-        cin >> demand[i];
+        cost = 0;
+        cin >> n;
+        for(int i=0; i<n; i++)
+        {
+            cin >> demand[i];
+        }
 
+        for(int i=1; i < n; i++)
+        {
+            demand[i] = demand[i] + demand[i-1];
+            cost += abs(demand[i-1]);
+        }
+
+        cout << cost << endl;
+        cin >> n;
     }
 }
