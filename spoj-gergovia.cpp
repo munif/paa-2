@@ -1,29 +1,26 @@
-#include <iostream>
-#include <cstdlib>
+#include<bits/stdc++.h>
 
 using namespace std;
 
 int main()
 {
-    int n = 1, cost = 0;
-    int demand[100000];
-
-    while(n != 0)
+    int n,i;
+    scanf("%d",&n);
+    while(n!=0)
     {
-        cost = 0;
-        cin >> n;
-        for(int i=0; i<n; i++)
-        {
-            cin >> demand[i];
-        }
+        long int a[n];
 
-        for(int i=1; i < n; i++)
-        {
-            demand[i] = demand[i] + demand[i-1];
-            cost += abs(demand[i-1]);
-        }
+        for(i=0;i<n;i++)
+            scanf("%ld",&a[i]);
 
-        cout << cost << endl;
-        cin >> n;
+        long long int work=0;
+        for(i=1;i<n;i++)
+        {
+            a[i]+=a[i-1];
+            work+=fabs(a[i-1]);
+        }
+        printf("%lld\n",work);
+        scanf("%d",&n);
     }
+    return 0;
 }
