@@ -1,6 +1,10 @@
 #include <iostream>
+#include <string.h>
 
 using namespace std;
+
+// define the memo
+long long fibo_memo[1000];
 
 long long fibonacci(int n)
 {
@@ -13,6 +17,9 @@ long long fibonacci(int n)
 int main()
 {
     int n;
+
+    memset(fibo_memo, 0, sizeof(fibo_memo));
+
     cin >> n;
     cout << fibonacci(n);
     cin.get();

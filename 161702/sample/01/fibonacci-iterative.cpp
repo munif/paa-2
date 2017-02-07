@@ -7,13 +7,20 @@ long long fibonacci(int n)
     long long a = 1;
     long long b = 1;
     long long c;
-    for (int i=3; i<=n; i++)
+    if (n == 1)
+        return a;
+    if (n == 2)
+        return b;
+    if (n > 2)
     {
-        c = a + b;
-        a = b;
-        b = c;
+        for (int i=3; i<=n; i++)
+        {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return c;
     }
-    return c;
 }
 
 int main()
@@ -21,4 +28,5 @@ int main()
     int n;
     cin >> n;
     cout << fibonacci(n);
+    cin.get();
 }
